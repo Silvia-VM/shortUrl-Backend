@@ -116,7 +116,7 @@ app.post("/create", async (req, res) => {
     try {
       const newUrl = new Url({
         url: req.body.url,
-        short_url: `http://localhost:${PORT}/${alea}`,
+        short_url: `http://short-url-silvia-marques-b.herokuapp.com:${PORT}/${alea}`,
         visits: 0
       });
 
@@ -160,7 +160,7 @@ setInterval(
         app.get("/" + alea, async (req, res) => {
           try {
             const url = await Url.findOne({
-              short_url: `http://localhost:${PORT}/${alea}`
+              short_url: `https://short-url-silvia-marques-b.herokuapp.com:${PORT}/${alea}`
             });
 
             url.visits += 1;
@@ -177,5 +177,7 @@ setInterval(
 );
 
 app.listen(PORT, () => {
-  console.log(`Server started on http://localhost:${PORT}`);
+  console.log(
+    `Server started on http://short-url-silvia-marques-b.herokuapp.com:${PORT}`
+  );
 });
