@@ -156,7 +156,6 @@ setInterval(
     // pour chaque aléa crée une route et augmente nb de visites
     tabAlea().then(a => {
       let b = [...a];
-
       b.forEach(async alea => {
         app.get("/" + alea, async (req, res) => {
           try {
