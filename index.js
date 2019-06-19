@@ -163,7 +163,7 @@ setInterval(
               short_url: `https://short-url-silvia-marques-b.herokuapp.com/${alea}`
             });
 
-            url.visits += 1;
+            // url.visits += 1;
             await url.save();
 
             res.status(301).redirect(url.url);
