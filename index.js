@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT || 3001; //PORT stocké dans une variable
+const PORT = process.env.PORT || 8080; //PORT stocké dans une variable
 //connexion avec la base de donnée locale
 mongoose.connect("mongodb://localhost/short-url-app", {
   useNewUrlParser: true
@@ -108,8 +108,7 @@ app.post("/create", async (req, res) => {
     try {
       const newUrl = new Url({
         url: req.body.url,
-        // short_url: `https://short-url-SILVIA-MARQUES/${alea}`,
-        short_url: `https://short-url-backend.herokuapp.com:3001/${alea}`,
+        short_url: `http://localhost:${PORT}/${alea}`,
         visits: 0
       });
 
@@ -153,7 +152,7 @@ setInterval(
         app.get("/" + alea, async (req, res) => {
           try {
             const url = await Url.findOne({
-              short_url: `https://short-url-backend.herokuapp.com:3001/${alea}`
+              short_url: `http://localhost:${PORT}/${alea}`
             });
 
             url.visits += 1;
