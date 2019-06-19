@@ -116,7 +116,7 @@ app.post("/create", async (req, res) => {
     try {
       const newUrl = new Url({
         url: req.body.url,
-        short_url: `http://short-url-silvia-marques-b.herokuapp.com:${PORT}/${alea}`,
+        short_url: `http://short-url-silvia-marques-b.herokuapp.com/${alea}`,
         visits: 0
       });
 
@@ -160,7 +160,7 @@ setInterval(
         app.get("/" + alea, async (req, res) => {
           try {
             const url = await Url.findOne({
-              short_url: `https://short-url-silvia-marques-b.herokuapp.com:${PORT}/${alea}`
+              short_url: `https://short-url-silvia-marques-b.herokuapp.com/${alea}`
             });
 
             url.visits += 1;
