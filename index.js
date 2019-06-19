@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 80;
 //   useNewUrlParser: true
 // });
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/short-url-app",
+  process.env.MONGODB_URI || "mongodb://localhost/short-url-app1",
   {
     useNewUrlParser: true
   }
@@ -163,7 +163,7 @@ setInterval(
               short_url: `https://short-url-silvia-marques-b.herokuapp.com/${alea}`
             });
 
-            // url.visits += 1;
+            url.visits += 1;
             await url.save();
 
             res.status(301).redirect(url.url);
