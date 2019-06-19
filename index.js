@@ -7,11 +7,19 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT || 8080; //PORT stocké dans une variable
+//PORT stocké dans une variable
+const PORT = process.env.PORT || 3001;
 //connexion avec la base de donnée locale
-mongoose.connect("mongodb://localhost/short-url-app", {
-  useNewUrlParser: true
-});
+// mongoose.connect("mongodb://localhost/short-url-app", {
+//   useNewUrlParser: true
+// });
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/short-url-app",
+  {
+    useNewUrlParser: true
+  }
+);
+
 //création modèle
 const Url = mongoose.model("Url", {
   url: String,
