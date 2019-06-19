@@ -8,7 +8,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //PORT stocké dans une variable
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 80;
 //connexion avec la base de donnée locale
 // mongoose.connect("mongodb://localhost/short-url-app", {
 //   useNewUrlParser: true
