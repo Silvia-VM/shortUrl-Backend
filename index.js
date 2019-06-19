@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 80;
 //   useNewUrlParser: true
 // });
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/short-url-app1",
+  process.env.MONGODB_URI || "mongodb://localhost/short-url-app",
   {
     useNewUrlParser: true
   }
@@ -156,8 +156,10 @@ setInterval(
     // pour chaque aléa crée une route et augmente nb de visites
     tabAlea().then(a => {
       let b = [...a];
+
       b.forEach(async alea => {
         app.get("/" + alea, async (req, res) => {
+          res.send(b);
           try {
             const url = await Url.findOne({
               short_url: `https://short-url-silvia-marques-b.herokuapp.com/${alea}`
