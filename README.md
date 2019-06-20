@@ -1,7 +1,5 @@
 # shortUrl-Backend
 
-# shortUrl-Backend
-
 Backend part of a custom shortUrl project  
 Deployed on Heroku platform   
 
